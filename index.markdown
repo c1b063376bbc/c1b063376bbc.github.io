@@ -5,9 +5,9 @@ title: "Ana Sayfa"
 
 <section class="hero">
   <p class="hero-intro">$ whoami</p>
-  <h1>ed.cybe.red</h1>
+  <h1>ed@cybe.red</h1>
   <p class="hero-description">
-    Kişisel site. İçeriği sen doldur.
+    Ed's Personal Site
   </p>
   <div class="hero-links">
     <a href="/yazilar/" class="primary">Yazıları Oku</a>
