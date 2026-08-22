@@ -1,0 +1,32 @@
+<header class="site-header" id="site-header">
+  <div class="header-container">
+    <a href="{{ '/' | relative_url }}" class="site-logo" id="site-logo">
+      <span class="logo-symbol">⟨</span><span class="logo-text">ed</span><span class="logo-symbol">⟩</span>
+    </a>
+
+    <nav class="site-nav" id="site-nav" aria-label="Ana navigasyon">
+      <button class="nav-toggle" id="nav-toggle" aria-label="Menüyü aç/kapat" aria-expanded="false">
+        <span class="hamburger"></span>
+      </button>
+      <ul class="nav-links" id="nav-links">
+        {% for link in site.data.navigation.main %}
+        <li>
+          <a href="{{ link.url | relative_url }}"
+             {% if page.url == link.url %}class="active" aria-current="page"{% endif %}>
+            {{ link.title }}
+          </a>
+        </li>
+        {% endfor %}
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<script>
+  document.getElementById('nav-toggle').addEventListener('click', function() {
+    const nav = document.getElementById('nav-links');
+    const expanded = this.getAttribute('aria-expanded') === 'true';
+    this.setAttribute('aria-expanded', !expanded);
+    nav.classList.toggle('open');
+  });
+</script>

@@ -1,0 +1,46 @@
+<footer class="site-footer" id="site-footer">
+  <div class="footer-container">
+    <div class="footer-grid">
+
+      <div class="footer-section">
+        <h3>İletişim</h3>
+        <p>
+          GPG şifreli e-posta gönderebilirsiniz.<br>
+          E-posta: <code>ed at cybe dot red</code>
+        </p>
+        <div class="social-links">
+          {% for social in site.data.navigation.social %}
+          <a href="{{ social.url }}" class="social-link" title="{{ social.name }}" rel="me noopener" target="_blank">
+            {{ social.name }}
+          </a>
+          {% endfor %}
+        </div>
+      </div>
+
+      <div class="footer-section">
+        <h3>İlkeler</h3>
+        <ul class="footer-principles">
+          <li>Bu sitede özgür olmayan JavaScript çalıştırılmaz</li>
+          <li>Takip çerezleri veya analitik kullanılmaz</li>
+          <li>Tüm içerik Creative Commons ile lisanslıdır</li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h3>Beslemeler</h3>
+        <ul>
+          <li><a href="{{ '/feed.xml' | relative_url }}">RSS (Atom)</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p>
+        © {{ site.time | date: '%Y' }} {{ site.author }}.
+        Bu site <a href="https://jekyllrb.com" target="_blank" rel="noopener">Jekyll</a> ile oluşturulmuştur.
+        İçerikler <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a> ile lisanslıdır.
+      </p>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,32 @@
+main:
+  - title: "Ana Sayfa"
+    url: "/"
+  - title: "Yazılar"
+    url: "/yazilar/"
+  - title: "Blog"
+    url: "/blog/"
+  - title: "Notlar"
+    url: "/notlar/"
+  - title: "Bağlantılar"
+    url: "/baglantilar/"
+  - title: "Hakkımda"
+    url: "/hakkimda/"
+
+# Boykot listesi — istemiyorsan sil veya boş bırak
+boycott: []
+# Örnek:
+# boycott:
+#   - name: "Şirket Adı"
+#     url: "#"
+#     reason: "Boykot nedeni"
+
+social:
+  - name: "Instagram"
+    url: "https://www.instagram.com/eyptherock"
+    icon: "instagram"
+  - name: "GitHub"
+    url: "https://github.com/dkey5"
+    icon: "github"
+  - name: "GPG Anahtarı"
+    url: "/gpg/"
+    icon: "key"

@@ -1,0 +1,44 @@
+---
+layout: default
+---
+<article class="post-content">
+  <header class="post-header">
+    <div class="post-meta">
+      <time datetime="{{ page.date | date_to_xmlschema }}">
+        {{ page.date | date: "%d %B %Y" }}
+      </time>
+      {% if page.categories.size > 0 %}
+      <span class="post-categories">
+        {% for cat in page.categories %}
+        <span class="tag">{{ cat }}</span>
+        {% endfor %}
+      </span>
+      {% endif %}
+    </div>
+    <h1 class="post-title">{{ page.title }}</h1>
+    {% if page.description %}
+    <p class="post-description">{{ page.description }}</p>
+    {% endif %}
+  </header>
+
+  <div class="content-body">
+    {{ content }}
+  </div>
+
+  <footer class="post-footer">
+    <div class="post-nav">
+      {% if page.previous.url %}
+      <a href="{{ page.previous.url | relative_url }}" class="post-nav-link prev">
+        <span class="post-nav-label">← Önceki</span>
+        <span class="post-nav-title">{{ page.previous.title }}</span>
+      </a>
+      {% endif %}
+      {% if page.next.url %}
+      <a href="{{ page.next.url | relative_url }}" class="post-nav-link next">
+        <span class="post-nav-label">Sonraki →</span>
+        <span class="post-nav-title">{{ page.next.title }}</span>
+      </a>
+      {% endif %}
+    </div>
+  </footer>
+</article>

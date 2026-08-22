@@ -1,0 +1,15 @@
+---
+layout: default
+---
+<article class="note-content">
+  <header class="note-header">
+    <time class="note-date" datetime="{{ page.date | date_to_xmlschema }}">
+      {{ page.date | date: "%d %B %Y" }}
+    </time>
+    <h2 class="note-title">{{ page.title }}</h2>
+  </header>
+
+  <div class="content-body">
+    {{ content }}
+  </div>
+</article>
