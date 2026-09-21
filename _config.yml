@@ -1,0 +1,57 @@
+# ──────────────────────────────────────────────
+# Site Settings
+# ──────────────────────────────────────────────
+title: "ed.cybe.red"
+description: "kişisel sözlük"
+url: "https://ed.cybe.red"
+baseurl: ""
+lang: "tr"
+
+# ──────────────────────────────────────────────
+# Build
+# ──────────────────────────────────────────────
+markdown: kramdown
+highlighter: rouge
+permalink: /entry/:slug
+
+kramdown:
+  input: GFM
+  hard_wrap: false
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    block:
+      line_numbers: false
+
+# ──────────────────────────────────────────────
+# Defaults
+# ──────────────────────────────────────────────
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+
+# ──────────────────────────────────────────────
+# Pagination (jekyll-paginate)
+# ──────────────────────────────────────────────
+paginate: 10
+paginate_path: "/sayfa/:num"
+
+# ──────────────────────────────────────────────
+# Plugins
+# ──────────────────────────────────────────────
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-paginate
+
+# ──────────────────────────────────────────────
+# Exclude
+# ──────────────────────────────────────────────
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - node_modules
+  - vendor

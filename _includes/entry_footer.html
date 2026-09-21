@@ -1,0 +1,74 @@
+{% comment %}
+  Entry footer: share dropdown · vote buttons · timestamp/permalink
+  Expected context: page or post object with .url, .date, .last_modified_at
+{% endcomment %}
+
+{% assign entry_url  = include.entry_url  | default: page.url | absolute_url %}
+{% assign entry_date = include.entry_date | default: page.date %}
+{% assign entry_id   = include.entry_id   | default: page.id  %}
+
+<footer class="entry-footer">
+  <!-- Left: Share + Vote -->
+  <div class="entry-actions">
+
+    <!-- Share dropdown -->
+    <div class="dropdown" data-dropdown>
+      <button class="btn-icon" data-dropdown-trigger aria-label="Paylaş" title="Paylaş">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+             stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="18" cy="5"  r="3"/>
+          <circle cx="6"  cy="12" r="3"/>
+          <circle cx="18" cy="19" r="3"/>
+          <line x1="8.59"  y1="13.51" x2="15.42" y2="17.49"/>
+          <line x1="15.41" y1="6.51"  x2="8.59"  y2="10.49"/>
+        </svg>
+      </button>
+      <div class="dropdown-menu" data-dropdown-menu>
+        <a class="dropdown-item" href="https://twitter.com/intent/tweet?url={{ entry_url | url_encode }}" target="_blank" rel="noopener">
+          X'te paylaş
+        </a>
+        <a class="dropdown-item" href="https://www.facebook.com/sharer/sharer.php?u={{ entry_url | url_encode }}" target="_blank" rel="noopener">
+          Facebook'ta paylaş
+        </a>
+        <a class="dropdown-item" href="https://bsky.app/intent/compose?text={{ entry_url | url_encode }}" target="_blank" rel="noopener">
+          Bluesky'da paylaş
+        </a>
+        <hr class="dropdown-divider">
+        <button class="dropdown-item" data-copy="{{ entry_url }}">
+          bağlantıyı kopyala
+        </button>
+        <button class="dropdown-item" data-copy="{{ entry_id }}">
+          entry id kopyala
+        </button>
+      </div>
+    </div>
+
+    <!-- Vote (şükela) -->
+    <div class="vote-group" data-vote-id="{{ entry_id }}">
+      <button class="btn-icon vote-btn" data-vote="up" aria-label="Şükela" title="Şükela">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+             stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="18 15 12 9 6 15"/>
+        </svg>
+      </button>
+      <button class="btn-icon vote-btn" data-vote="down" aria-label="Ekşile" title="Ekşile">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+             stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="6 9 12 15 18 9"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Right: Timestamp -->
+  <div class="entry-meta">
+    <a href="{{ entry_url }}" class="entry-timestamp" title="Permalink">
+      {{ entry_date | date: "%d.%m.%Y %H:%M" }}
+    </a>
+    {% if page.last_modified_at %}
+      <span class="entry-edited">
+        ~ {{ page.last_modified_at | date: "%d.%m.%Y %H:%M" }}
+      </span>
+    {% endif %}
+  </div>
+</footer>

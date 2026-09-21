@@ -1,0 +1,33 @@
+---
+layout: default
+title: ""
+---
+
+{% for post in paginator.posts %}
+<article class="entry entry--listed">
+  <h2 class="entry-title">
+    <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+  </h2>
+
+  <div class="entry-body">
+    {{ post.content }}
+  </div>
+
+  {% include entry_footer.html
+     entry_url=post.url
+     entry_date=post.date
+     entry_id=post.id %}
+</article>
+{% endfor %}
+
+<!-- Pagination -->
+{% if paginator.total_pages > 1 %}
+<nav class="pagination" aria-label="Sayfalama">
+  {% if paginator.previous_page %}
+    <a href="{{ paginator.previous_page_path | relative_url }}" class="btn-more">&larr; önceki</a>
+  {% endif %}
+  {% if paginator.next_page %}
+    <a href="{{ paginator.next_page_path | relative_url }}" class="btn-more">daha fazla göster &rarr;</a>
+  {% endif %}
+</nav>
+{% endif %}

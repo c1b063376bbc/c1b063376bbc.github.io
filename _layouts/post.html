@@ -1,0 +1,21 @@
+---
+layout: default
+---
+
+<article class="entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <h1 class="entry-title" itemprop="headline">{{ page.title }}</h1>
+
+  <div class="entry-body" itemprop="articleBody">
+    {{ content }}
+  </div>
+
+  {% include entry_footer.html %}
+
+  {% if page.next %}
+    <div class="entry-more">
+      <a href="{{ page.next.url | relative_url }}" class="btn-more">
+        sonraki entry &rarr;
+      </a>
+    </div>
+  {% endif %}
+</article>

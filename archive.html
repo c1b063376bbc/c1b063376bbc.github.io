@@ -1,0 +1,16 @@
+---
+layout: default
+title: "arşiv"
+permalink: /archive/
+---
+
+<h1 class="page-title">arşiv</h1>
+
+<ul class="archive-list">
+  {% for post in site.posts %}
+  <li class="archive-item">
+    <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+    <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%d.%m.%Y" }}</time>
+  </li>
+  {% endfor %}
+</ul>
